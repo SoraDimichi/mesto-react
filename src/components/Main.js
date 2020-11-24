@@ -8,6 +8,7 @@ import Card from "./Card";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Main ({onEditAvatar, onEditProfile, onAddPlace, setCards, cards, cardClick}) {
+
   const currentUser = React.useContext(CurrentUserContext);
   const {name, about, avatar} = currentUser;
 
@@ -30,12 +31,13 @@ function Main ({onEditAvatar, onEditProfile, onAddPlace, setCards, cards, cardCl
 
   return(
     <main className="content">
+
       <section className="profile">
+
         <div className="profile__avatar" style={{ backgroundImage: `url('${avatar}')` }} />
         <button className="profile__avatarButton" onClick={onEditAvatar} >
           <img src={profile__editAvatar} alt="изменить" />
         </button>
-
         <h1 className="profile__name">{name}</h1>
         <p className="profile__about">{about}</p>
         <button className="profile__openPopupButton" onClick={onEditProfile}>
@@ -45,6 +47,7 @@ function Main ({onEditAvatar, onEditProfile, onAddPlace, setCards, cards, cardCl
         <button className="profile__addButton" onClick={onAddPlace}>
           +
         </button>
+
       </section>
 
       <ul className="cards">

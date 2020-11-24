@@ -1,14 +1,13 @@
 import React from "react";
 import popup__closeButtonImage from "../images/__closeButtonImage/popup__closeButtonImage.svg";
 
-class PopupWithImage extends React.Component {
+function PopupWithImage(props) {
 
-  render() {
     const {
       card,
       card: {link, name} = {link: '', name: ''},
       onClose,
-    } = this.props;
+    } = props;
 
     return (
       <div className={`popup popup_type_image${card ? ' popup_opened' : ''}`}>
@@ -22,7 +21,6 @@ class PopupWithImage extends React.Component {
         </figure>
       </div>
     )
-  }
 }
 
 export default PopupWithImage
