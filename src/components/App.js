@@ -69,6 +69,23 @@ function App() {
     }).catch((err) => new Error(`Ошибка: ${err}`))
   }
 
+  const handleCardLike = (card) => {
+    const isLiked = card.likes.some((like) => like._id === currentUser._id);
+    api.like(card._id, isLiked).then((newCard) => {
+      const newCards = cards.map((cardIsLiked) => {
+        return cardIsLiked._id === card._id ? newCard : cardIsLiked;
+      });
+      setCards(newCards);
+    }).catch((err) => new Error(`Ошибка: ${err}`));
+  };
+
+  const handleDeleteCard = (card) => {
+    api.deleteCard(card._id).then(() => {
+      const newCards = cards.filter(cardIsDeleted => cardIsDeleted._id !== card._id);
+      setCards(newCards);
+    }).catch((err) => new Error(`Ошибка: ${err}`));
+  }
+
   function handleCardClick(card) {
     setSelectedCardPopup(card)
   }
@@ -89,7 +106,10 @@ function App() {
         <Main onAddPlace={handleAddPlaceClick}
               onEditProfile={handleEditProfileClick}
               onEditAvatar={handleEditAvatarClick}
-              cardClick={handleCardClick}
+              onCardClick={handleCardClick}
+              onCardLike={handleCardLike}
+              onCardDelete={handleDeleteCard}
+
               cards={cards}
               setCards={setCards}/>
         <Footer />
