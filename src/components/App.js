@@ -31,13 +31,13 @@ function App() {
     }).catch((err) => new Error(`Ошибка: ${err}`))
   }, [])
 
-  const [isEditProfileOpen, setIsEditProfilePopup] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopup] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopup] = React.useState(false);
-  const [selectedCard, setIsSelectedCardPopup] = React.useState(undefined);
+  const [isEditProfileOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [selectedCard, setIsSelectedCard] = React.useState(undefined);
 
   function handleEditProfileClick  ()  {
-    setIsEditProfilePopup(true);
+    setIsEditProfilePopupOpen(true);
   }
 
   const handleUpdateUser = (data) => {
@@ -48,7 +48,7 @@ function App() {
   }
 
   function handleEditAvatarClick ()  {
-    setIsEditAvatarPopup(true);
+    setIsEditAvatarPopupOpen(true);
   }
 
   const handleUpdateAvatar = (data) => {
@@ -59,7 +59,7 @@ function App() {
   }
 
   function handleAddPlaceClick ()  {
-    setIsAddPlacePopup(true);
+    setIsAddPlacePopupOpen(true);
   }
 
   const handleAddPlaceSubmit = (data) => {
@@ -87,14 +87,14 @@ function App() {
   }
 
   function handleCardClick(card) {
-    setIsSelectedCardPopup(card)
+    setIsSelectedCard(card)
   }
 
   function closeAllPopups () {
-    setIsAddPlacePopup(false);
-    setIsEditAvatarPopup(false);
-    setIsEditProfilePopup(false);
-    setIsSelectedCardPopup(undefined);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsSelectedCard(undefined);
   }
 
   return (
