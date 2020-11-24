@@ -8,10 +8,10 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 
-import PopupWithImage from "./PopupWithImage";
+import ImagePopup from "./ImagePopup";
 
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import {api} from "../utils/Api"
+import {api} from "../utils/api"
 
 function App() {
 
@@ -31,13 +31,13 @@ function App() {
     }).catch((err) => new Error(`Ошибка: ${err}`))
   }, [])
 
-  const [isEditProfileOpen, setEditProfilePopup] = React.useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopup] = React.useState(false);
-  const [isEditAvatarPopupOpen, setEditAvatarPopup] = React.useState(false);
-  const [selectedCard, setSelectedCardPopup] = React.useState(undefined);
+  const [isEditProfileOpen, setIsEditProfilePopup] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopup] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopup] = React.useState(false);
+  const [selectedCard, setIsSelectedCardPopup] = React.useState(undefined);
 
   function handleEditProfileClick  ()  {
-    setEditProfilePopup(true);
+    setIsEditProfilePopup(true);
   }
 
   const handleUpdateUser = (data) => {
@@ -48,7 +48,7 @@ function App() {
   }
 
   function handleEditAvatarClick ()  {
-    setEditAvatarPopup(true);
+    setIsEditAvatarPopup(true);
   }
 
   const handleUpdateAvatar = (data) => {
@@ -59,7 +59,7 @@ function App() {
   }
 
   function handleAddPlaceClick ()  {
-    setAddPlacePopup(true);
+    setIsAddPlacePopup(true);
   }
 
   const handleAddPlaceSubmit = (data) => {
@@ -87,14 +87,14 @@ function App() {
   }
 
   function handleCardClick(card) {
-    setSelectedCardPopup(card)
+    setIsSelectedCardPopup(card)
   }
 
   function closeAllPopups () {
-    setAddPlacePopup(false);
-    setEditAvatarPopup(false);
-    setEditProfilePopup(false);
-    setSelectedCardPopup(undefined);
+    setIsAddPlacePopup(false);
+    setIsEditAvatarPopup(false);
+    setIsEditProfilePopup(false);
+    setIsSelectedCardPopup(undefined);
   }
 
   return (
@@ -129,8 +129,8 @@ function App() {
                        onAddPlace={handleAddPlaceSubmit}
         />
 
-        <PopupWithImage card={selectedCard}
-                        onClose={closeAllPopups}
+        <ImagePopup card={selectedCard}
+                    onClose={closeAllPopups}
         />
 
       </div>

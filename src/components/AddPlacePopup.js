@@ -15,7 +15,6 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
       name,
       link,
     })
-    evt.target.reset();
   }
 
   React.useEffect(() => {

@@ -1,18 +1,17 @@
 import React from "react";
-import popup__closeButtonImage from "../images/__closeButtonImage/popup__closeButtonImage.svg";
+import popupCloseButtonImage from "../images/__closeButtonImage/popup__closeButtonImage.svg";
 
-function PopupWithImage(props) {
+function ImagePopup(props) {
 
     const {
-      card,
       card: {link, name} = {link: '', name: ''},
       onClose,
     } = props;
 
     return (
-      <div className={`popup popup_type_image${card ? ' popup_opened' : ''}`}>
+      <div className={`popup popup_type_image${link && name ? ' popup_opened' : ''}`}>
         <button className="popup__closeButton" onClick={onClose}>
-          <img className="popup__closeButtonImage" src={popup__closeButtonImage}
+          <img className="popup__closeButtonImage" src={popupCloseButtonImage}
                alt="закрыть" />
         </button>
         <figure className="popup__lightBoxContainer">
@@ -23,4 +22,4 @@ function PopupWithImage(props) {
     )
 }
 
-export default PopupWithImage
+export default ImagePopup

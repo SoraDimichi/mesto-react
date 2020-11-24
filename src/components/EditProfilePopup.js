@@ -19,7 +19,6 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
       name,
       about: description,
     });
-    evt.target.reset();
   };
 
   React.useEffect(() => {

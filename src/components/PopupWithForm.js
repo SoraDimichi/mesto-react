@@ -1,12 +1,12 @@
 import React from "react";
-import popup__closeButtonImage from '../images/__closeButtonImage/popup__closeButtonImage.svg';
+import popupCloseButtonImage from '../images/__closeButtonImage/popup__closeButtonImage.svg';
 
 function PopupWithForm ({buttonTitle, onClose, children, name, title, isOpen, onSubmit}) {
 
     return (
       <div className={`popup popup_type_${name}${isOpen ? ' popup_opened' : ''}`}>
         <button className="popup__closeButton" onClick={onClose}>
-          <img className="popup__closeButtonImage" src={popup__closeButtonImage}
+          <img className="popup__closeButtonImage" src={popupCloseButtonImage}
                alt="закрыть" />
         </button>
         <form className="popup__form" onSubmit={onSubmit}>

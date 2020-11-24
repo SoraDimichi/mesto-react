@@ -1,5 +1,5 @@
 import React from "react";
-import card__deleteButtonImage from '../images/__deleteButtonImage/card__deleteButtonImage.svg';
+import cardDeleteButtonImage from '../images/__deleteButtonImage/card__deleteButtonImage.svg';
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Card ({onCardClick, onCardLike, onCardDelete, card}) {
@@ -15,21 +15,21 @@ function Card ({onCardClick, onCardLike, onCardDelete, card}) {
 
   const cardLikeButtonClassName = (`card__likeButton${isLiked ? ' card__likeButton_active' : ''}`);
 
-  const CardClick = () => onCardClick(card);
-  const CardLike = () => onCardLike(card);
-  const CardDelete = () => onCardDelete(card);
+  const handleCardClick = () => onCardClick(card);
+  const handleCardLike = () => onCardLike(card);
+  const handleCardDelete = () => onCardDelete(card);
 
   return (
     <li className="card">
-      <button className={cardDeleteButtonClassName} onClick={CardDelete}>
-        <img className="card__deleteButtonImage" src={card__deleteButtonImage} alt="Удалить" />
+      <button className={cardDeleteButtonClassName} onClick={handleCardDelete}>
+        <img className="card__deleteButtonImage" src={cardDeleteButtonImage} alt="Удалить" />
       </button>
       <div className="card__imageContainer"
            style={{ backgroundImage: `url('${link}')` }}
-           onClick={CardClick}
+           onClick={handleCardClick}
       />
       <p className="card__title">{name}</p>
-      <button className={cardLikeButtonClassName} onClick={CardLike}>
+      <button className={cardLikeButtonClassName} onClick={handleCardLike}>
       </button>
       <p className="card__likeCounter">{likes.length}</p>
     </li>
