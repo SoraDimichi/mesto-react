@@ -8,17 +8,6 @@
   background-position: center;
 }
 
-
-.profile__avatarButtonImage {
-  width: 16px;
-  height: 16px;
-
-  z-index: 3;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
-
-}
-
 .profile__avatar:hover {
   opacity: 0.8;
 }

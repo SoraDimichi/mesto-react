@@ -9,4 +9,5 @@
 @import url('./blocks/footer/footer.css');
 @import url('./blocks/popup/popup.css');
 @import url('./blocks/popup/_opened/popup_opened.css');
-@import url('blocks/card/__likeButton/_toggled/card__likeButton_toggled.css');
+@import url('blocks/card/__likeButton/_active/card__likeButton_active.css');
+@import url('blocks/card/__deleteButton/_hidden/card__deleteButton_hidden.css');

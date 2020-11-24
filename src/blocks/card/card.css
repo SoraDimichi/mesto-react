@@ -1,9 +1,8 @@
-@import url('__likeButton/_toggled/card__likeButton_toggled.css');
 @import url('__title/card__title.css');
-@import url('__image/card__image.css');
+@import url('__imageContainer/card__imageContainer.css');
+@import url('__deleteButton/card__deleteButton.css');
+@import url('__deleteButtonImage/card__deleteButtonImage.css');
 @import url('__likeButton/card__likeButton.css');
-@import url('__removeButton/card__removeButton.css');
-@import url('__removeButtonImage/card__removeButtonImage.css');
 @import url('__likeCounter/card__likeCounter.css');
 
 .card {

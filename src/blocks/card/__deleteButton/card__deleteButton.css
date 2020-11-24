@@ -1,4 +1,4 @@
-.card__removeButton {
+.card__deleteButton {
   grid-area: 1 / 1 / 2 / 6;
   padding: 0;
   border: none;
@@ -12,13 +12,13 @@
   right: 15px;
 }
 
-.card__removeButton:hover {
+.card__deleteButton:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
-  .card__removeButton:hover {
+  .card__deleteButton:hover {
     opacity: 1;
   }
 }

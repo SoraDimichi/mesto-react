@@ -22,14 +22,6 @@
   opacity: 0.8;
 }
 
-/*.profile__avatarButton::after {*/
-/*  content: "";*/
-/*  background: center no-repeat url('../../../images/__avatar/profile__avatarButton.svg');*/
-/*  height: 120px;*/
-/*  width: 120px;*/
-/*  display: block;*/
-/*}*/
-
 @media screen and (max-width: 700px) {
   .profile__avatarButton::after {
     display: none;

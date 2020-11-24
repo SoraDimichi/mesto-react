@@ -1,33 +1,38 @@
 import React from "react";
-import card__removeButton from '../images/__removeButtonImage/card__removeButtonImage.svg';
+import card__deleteButtonImage from '../images/__deleteButtonImage/card__deleteButtonImage.svg';
+import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
+function Card ({onCardClick, card}) {
 
-class Card extends React.Component {
+  const {name = '', link = '', likes = []} = card;
 
-  handleCardClick = () => {
-    this.props.onCardClick(this.props.card)
-  }
+  const currentUser = React.useContext(CurrentUserContext);
 
-  render() {
-    const {card} = this.props;
-    return (
-      <li className="card">
-        <button className="card__removeButton">
-          <img className="card__removeButtonImage" src={card__removeButton}
-               alt="Удалить" />
-        </button>
-        <div className="card__imageContainer"
-             style={{ backgroundImage: `url('${card.link}')` }}
+  const isOwn = card.owner._id === currentUser._id;
 
-             onClick={this.handleCardClick}
-        />
-        <p className="card__title">{card.name}</p>
-        <button className="card__likeButton">
-        </button>
-        <p className="card__likeCounter">{card.likes.length}</p>
-      </li>
-    )
-  }
+  const cardDeleteButtonClassName = (`card__deleteButton${isOwn ? '' : ' card__deleteButton_hidden'}`);
+
+  const isLiked = likes.some((like) => like._id === currentUser._id);
+
+  const cardLikeButtonClassName = (`card__likeButton${isLiked ? ' card__likeButton_active' : ''}`);
+
+  const handleCardClick = () => onCardClick(card);
+
+  return (
+    <li className="card">
+      <button className={cardDeleteButtonClassName}>
+        <img className="card__deleteButtonImage" src={card__deleteButtonImage} alt="Удалить" />
+      </button>
+      <div className="card__imageContainer"
+           style={{ backgroundImage: `url('${link}')` }}
+           onClick={handleCardClick}
+      />
+      <p className="card__title">{name}</p>
+      <button className={cardLikeButtonClassName}>
+      </button>
+      <p className="card__likeCounter">{likes.length}</p>
+    </li>
+  )
 }
 
 export default Card
