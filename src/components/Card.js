@@ -17,11 +17,11 @@ function Card ({onCardClick, onCardLike, onCardDelete, card}) {
 
   const CardClick = () => onCardClick(card);
   const CardLike = () => onCardLike(card);
-  const DeleteCard = () => onCardDelete(card);
+  const CardDelete = () => onCardDelete(card);
 
   return (
     <li className="card">
-      <button className={cardDeleteButtonClassName} onClick={DeleteCard}>
+      <button className={cardDeleteButtonClassName} onClick={CardDelete}>
         <img className="card__deleteButtonImage" src={card__deleteButtonImage} alt="Удалить" />
       </button>
       <div className="card__imageContainer"
