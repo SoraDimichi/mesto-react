@@ -67,7 +67,8 @@ function App() {
               onEditProfile={handleEditProfileClick}
               onEditAvatar={handleEditAvatarClick}
               cardClick={handleCardClick}
-              cards={cards}/>
+              cards={cards}
+              setCards={setCards}/>
         <Footer />
 
         <PopupWithForm name={'editAvatar'} title={'Обновить Аватар'} buttonTitle={'Сохранить'} isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>

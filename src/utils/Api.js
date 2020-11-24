@@ -54,11 +54,7 @@ class Api {
 
   like(id, isLiked) {
     let method;
-    if (isLiked) {
-      method = 'DELETE';
-    } else {
-      method = 'PUT';
-    }
+    isLiked ? method = 'DELETE' : method = 'PUT';
     return this._getResponseData(`/cards/likes/${id}`, {
       headers: this._headers,
       method: method,

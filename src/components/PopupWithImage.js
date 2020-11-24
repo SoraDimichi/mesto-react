@@ -11,7 +11,7 @@ class PopupWithImage extends React.Component {
     } = this.props;
 
     return (
-      <div className={`popup popup_type_image ${card ? 'popup_opened' : ''}`}>
+      <div className={`popup popup_type_image${card ? ' popup_opened' : ''}`}>
         <button className="popup__closeButton" onClick={onClose}>
           <img className="popup__closeButtonImage" src={popup__closeButtonImage}
                alt="закрыть" />

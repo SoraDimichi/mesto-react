@@ -2,7 +2,7 @@ import React from "react";
 import card__deleteButtonImage from '../images/__deleteButtonImage/card__deleteButtonImage.svg';
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
-function Card ({onCardClick, card}) {
+function Card ({onCardClick, onCardLike, onDeleteCard, card}) {
 
   const {name = '', link = '', likes = []} = card;
 
@@ -18,9 +18,14 @@ function Card ({onCardClick, card}) {
 
   const handleCardClick = () => onCardClick(card);
 
+  const handleLikeClick = () => onCardLike(card);
+
+  const handleCardDelete = () => onDeleteCard(card);
+
+
   return (
     <li className="card">
-      <button className={cardDeleteButtonClassName}>
+      <button className={cardDeleteButtonClassName} onClick={handleCardDelete}>
         <img className="card__deleteButtonImage" src={card__deleteButtonImage} alt="Удалить" />
       </button>
       <div className="card__imageContainer"
@@ -28,7 +33,7 @@ function Card ({onCardClick, card}) {
            onClick={handleCardClick}
       />
       <p className="card__title">{name}</p>
-      <button className={cardLikeButtonClassName}>
+      <button className={cardLikeButtonClassName} onClick={handleLikeClick}>
       </button>
       <p className="card__likeCounter">{likes.length}</p>
     </li>
